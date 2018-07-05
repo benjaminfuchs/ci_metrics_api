@@ -2,7 +2,8 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  JenkinsBuilds = require('./api/models/JenkinsBuildsModel'),
+  JenkinsBuilds = require('./api/models/jenkinsBuildsModel'),
+  PullRequests = require('./api/models/pullRequestsModel'),
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection
@@ -12,8 +13,11 @@ mongoose.connect('mongodb://localhost:27017/ci_metrics_db', { useNewUrlParser: t
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var routes = require('./api/routes/JenkinsBuildsRoutes'); //importing route
-routes(app); //register the route
+var jenkinsBuildsRoutes = require('./api/routes/jenkinsBuildsRoutes'); //importing route
+jenkinsBuildsRoutes(app); //register the route
+
+var pullRequestsRoutes = require('./api/routes/pullRequestsRoutes'); //importing route
+pullRequestsRoutes(app); //register the route
 
 app.listen(port);
 
