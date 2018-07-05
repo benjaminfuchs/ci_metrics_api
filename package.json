@@ -1,0 +1,16 @@
+{
+  "name": "ci_metrics",
+  "version": "1.0.0",
+  "description": "Node Js based REST API with Database to store CI metrics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node",
+    "REST",
+    "DB"
+  ],
+  "author": "Sebastian Schleemilch",
+  "license": "ISC"
+}
