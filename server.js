@@ -2,7 +2,7 @@ var express = require('express'),
   app = express(),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
-  JenkinsBuilds = require('./api/models/JenkinsBuildsModel'), //created model loading here
+  JenkinsBuilds = require('./api/models/JenkinsBuildsModel'),
   bodyParser = require('body-parser');
   
 // mongoose instance connection url connection

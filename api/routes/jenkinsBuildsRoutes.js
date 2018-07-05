@@ -2,7 +2,7 @@
 module.exports = function(app) {
   var jenkinsBuilds = require('../controllers/jenkinsBuildsController');
 
-  // todoList Routes
+  // jenkins builds routes
   app.route('/builds')
     .get(jenkinsBuilds.get_all)
     .post(jenkinsBuilds.add);
