@@ -17,14 +17,18 @@ var JenkinsBuildSchema = new Schema({
     required: 'Result of the build is required!',
     enum: ['success', 'fail']
   },
-  jenkins: {
-    type: String,
-    required: 'URL of the jenkins is required!'
+  url: {
+    jenkins: {
+      type: String,
+      required: 'URL of the jenkins is required!'
+    },
+    build: String
   },
-  build_url: String,
-  fail_stage: String,
-  fail_node: String,
-  fail_message: String,
+  fail: {
+    stage: String,
+    node: String,
+    message: String
+  },
   duration: Number
 });
 
