@@ -1,0 +1,90 @@
+{
+	"info": {
+		"_postman_id": "b77a8614-3e8e-4e45-9000-b25e74a7cae3",
+		"name": "ci_metrics_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /builds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bc161dcd-cbaa-4ed6-aa8d-74c4f5c33afa",
+						"type": "text/javascript",
+						"exec": [
+							"// ensure healthy response code",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:3000/builds",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"builds"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /builds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1ccc85e5-9dfa-404d-8c21-10792df731f1",
+						"type": "text/javascript",
+						"exec": [
+							"// ensure healthy response code",
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"// Define the JSON Schema",
+							"const responseSchema = {",
+							"  \"required\": [\"_id\", \"type\", \"result\", \"date\", \"url\"]",
+							"};",
+							"",
+							"// Test whether the response matches the schema",
+							"var response = JSON.parse(responseBody);",
+							"tests[\"Response is valid\"] = tv4.validate(response, responseSchema);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"develop\",\n\t\"result\":\"success\",\n\t\"url.jenkins\":\"http://jenkins\"\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/builds",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"builds"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
