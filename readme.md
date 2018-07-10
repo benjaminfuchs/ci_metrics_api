@@ -1,5 +1,7 @@
 # CI Metrics
-------------------
+
+[![Build Status](https://travis-ci.org/benjaminfuchs/ci_metrics_api.svg?branch=master)](https://travis-ci.org/benjaminfuchs/ci_metrics_api)
+
 This is a ci metrics database providing a REST API to interact with.
 ------------------
 
