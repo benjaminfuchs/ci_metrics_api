@@ -5,10 +5,10 @@ var express = require('express'),
   JenkinsBuilds = require('./api/models/jenkinsBuildsModel'),
   PullRequests = require('./api/models/pullRequestsModel'),
   bodyParser = require('body-parser');
-  
+
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/ci_metrics_db', { useNewUrlParser: true }); 
+mongoose.connect('mongodb://mongo:27017/ci_metrics_db', { useNewUrlParser: true });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
